@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6759d6">
+  <meta name="description" content="StudySprint is a free study planner for students. Organize study tasks, build a weekly timetable, use a Pomodoro focus timer and track study progress.">
+  <meta name="keywords" content="study planner, free study planner for students, Pomodoro timer, study timetable, exam preparation, task tracker">
+  <meta name="author" content="StudySprint Student Project">
+  <meta name="robots" content="index, follow">
+  <title>StudySprint | Free Study Planner, Pomodoro Timer & Task Tracker</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="#home" aria-label="StudySprint home"><span class="brand-mark" aria-hidden="true">✦</span> StudySprint</a>
+      <nav aria-label="Main navigation">
+        <a href="#planner">Planner</a><a href="#focus">Focus timer</a><a href="#progress">Progress</a><a href="#tips">Study tips</a>
+      </nav>
+      <a class="nav-cta" href="#planner">Start planning <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow"><span aria-hidden="true">●</span> FREE STUDY PRODUCTIVITY TOOL</p>
+          <h1 id="hero-title">Less stress.<br><span>More progress.</span></h1>
+          <p class="hero-copy">Turn big goals into small wins. Plan your study sessions, stay focused and celebrate every task you finish — all in one simple workspace.</p>
+          <div class="hero-actions"><a class="button primary" href="#planner">Plan my day <span aria-hidden="true">→</span></a><a class="button secondary" href="#focus">Try focus timer</a></div>
+          <p class="support-note">✓ Free to use &nbsp; ✓ No account needed &nbsp; ✓ Saves on your device</p>
+        </div>
+        <div class="hero-visual" aria-label="StudySprint sample weekly study checklist">
+          <div class="floating-star star-one" aria-hidden="true">✦</div><div class="floating-star star-two" aria-hidden="true">✳</div>
+          <div class="sample-card">
+            <div class="sample-head"><span class="small-label">YOUR DAILY MOMENTUM</span><span class="small-pill">✧ keep going</span></div>
+            <h2>Today's study plan <span aria-hidden="true">✨</span></h2>
+            <p>Small steps lead to big results.</p>
+            <div class="sample-task checked"><span>✓</span> Revise biology notes <small>Done</small></div>
+            <div class="sample-task checked"><span>✓</span> Practice mathematics <small>Done</small></div>
+            <div class="sample-task"><span>○</span> Read chapter 4 <small>Next</small></div>
+            <div class="sample-progress-head"><strong>You're making progress!</strong><b>67%</b></div><div class="sample-track"><div></div></div>
+          </div>
+          <div class="focus-sticker"><span aria-hidden="true">⏱</span><strong>25:00</strong><small>Focus mode</small></div>
+        </div>
+      </div>
+    </section>
+    <section class="features container" aria-label="Website features">
+      <div class="feature"><span class="feature-icon lavender" aria-hidden="true">☑</span><div><h3>Plan smarter</h3><p>Keep study tasks in one place.</p></div></div>
+      <div class="feature"><span class="feature-icon peach" aria-hidden="true">◷</span><div><h3>Stay focused</h3><p>Work in manageable sessions.</p></div></div>
+      <div class="feature"><span class="feature-icon mint" aria-hidden="true">↗</span><div><h3>See your wins</h3><p>Track progress, one task at a time.</p></div></div>
+    </section>
+    <section id="planner" class="section section-soft" aria-labelledby="planner-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">01 / YOUR STUDY SPACE</p><h2 id="planner-title">Your plans, <span>perfectly organized.</span></h2><p>Add tasks, choose a subject and set a date. Check them off as you go.</p></div><span class="section-flourish" aria-hidden="true">✎</span></div>
+        <div class="planner-grid">
+          <div class="panel"><div class="panel-header"><div><h3>Add a study task</h3><p>What would you like to accomplish?</p></div><span aria-hidden="true">✳</span></div>
+            <form id="task-form">
+              <label for="task-name">Task name</label><input id="task-name" name="task" required maxlength="100" placeholder="e.g. Revise chemistry chapter 3">
+              <div class="form-grid"><div><label for="task-subject">Subject</label><select id="task-subject" name="subject"><option>General</option><option>Mathematics</option><option>Science</option><option>English</option><option>History</option><option>Other</option></select></div><div><label for="task-date">Target date</label><input id="task-date" type="date" name="date" required></div></div>
+              <button class="button primary full" type="submit">+ Add to my plan</button><p id="task-message" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+          <div class="panel task-panel"><div class="panel-header"><div><h3>My study checklist</h3><p id="task-subtitle">Your tasks will appear here.</p></div><button id="clear-completed" class="text-button" type="button">Clear completed</button></div>
+            <div class="filter-row" role="group" aria-label="Filter tasks"><button class="filter active" data-filter="all" type="button" aria-pressed="true">All</button><button class="filter" data-filter="active" type="button" aria-pressed="false">To do</button><button class="filter" data-filter="done" type="button" aria-pressed="false">Done</button></div>
+            <ul id="task-list" class="task-list" aria-live="polite"></ul><p id="empty-state" class="empty-state">No tasks here yet. Add your first study goal! 🌱</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="focus" class="section" aria-labelledby="focus-title"><div class="container focus-grid"><div class="focus-copy"><p class="eyebrow">02 / FOCUS MODE</p><h2 id="focus-title">Make time for <span>deep work.</span></h2><p>The Pomodoro technique breaks study time into focused sessions and short breaks. Pick a mode, start the clock and give one task your attention.</p><ul class="check-list"><li>25-minute focus sessions</li><li>5-minute short breaks</li><li>Simple controls, fewer distractions</li></ul></div>
+      <div class="timer-panel"><p class="timer-caption">YOUR FOCUS CORNER ✦</p><div class="timer-tabs" role="group" aria-label="Timer mode"><button type="button" data-minutes="25" class="timer-tab selected" aria-pressed="true">Focus · 25m</button><button type="button" data-minutes="5" class="timer-tab" aria-pressed="false">Break · 5m</button></div><div id="timer-display" class="timer-display" role="timer" aria-label="Time remaining">25:00</div><p id="timer-status" class="timer-status" aria-live="polite">Ready when you are.</p><div class="timer-actions"><button id="timer-start" class="button primary" type="button">Start focus</button><button id="timer-reset" class="button secondary" type="button">Reset</button></div><p class="timer-note">Keep this tab open while your timer runs.</p></div></div></section>
+    <section id="progress" class="section section-soft" aria-labelledby="progress-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">03 / YOUR MOMENTUM</p><h2 id="progress-title">Every little win <span>counts.</span></h2><p>See how far you've come with your study goals.</p></div></div><div class="stats-grid"><article class="stat"><span>✦ Total tasks</span><strong id="total-count">0</strong><p>Goals you added</p></article><article class="stat"><span>✓ Completed</span><strong id="done-count">0</strong><p>Goals you've finished</p></article><article class="stat"><span>◷ Remaining</span><strong id="remaining-count">0</strong><p>Still on your list</p></article><article class="stat featured"><span>↗ Completion rate</span><strong id="completion-rate">0%</strong><div class="stat-track"><div id="completion-bar"></div></div></article></div><p class="data-note">Your task data is stored locally in this browser. It will not sync across devices.</p></div></section>
+    <section id="tips" class="section" aria-labelledby="tips-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">04 / STUDY BETTER</p><h2 id="tips-title">Little habits. <span>Big difference.</span></h2><p>Try these practical study techniques to build consistency.</p></div></div><div class="tips-grid"><article class="tip-card"><span class="tip-emoji" aria-hidden="true">🎯</span><h3>Set one clear goal</h3><p>Choose a specific outcome before you start, like solving ten practice questions instead of simply “studying math.”</p></article><article class="tip-card"><span class="tip-emoji" aria-hidden="true">🧠</span><h3>Test your memory</h3><p>Close the notes and explain what you learned in your own words. Practice recalling information, not only rereading it.</p></article><article class="tip-card"><span class="tip-emoji" aria-hidden="true">🌿</span><h3>Take real breaks</h3><p>Stretch, walk or drink water during breaks so you return refreshed for your next focused study session.</p></article></div></div></section>
+    <section class="cta-section"><div class="container cta-content"><p>YOUR NEXT SMALL WIN STARTS HERE</p><h2>Ready to make today count?</h2><a class="button light" href="#planner">Create your study plan →</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">✦</span> StudySprint</a><p>A free student productivity project built for better study days.</p></div><div><p>© <span id="year"></span> StudySprint. Made for learning.</p><a href="#home">Back to top ↑</a></div></div></footer>
+</body>
+</html>
